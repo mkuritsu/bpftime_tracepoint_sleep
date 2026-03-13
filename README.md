@@ -18,7 +18,7 @@ sudo LD_PRELOAD=~/.bpftime/libbpftime-syscall-server.so ./write_trace
 Then run the victim program
 
 ```bash
-sudo AGENT_SO=~/.bpftime/libbpftime-agent.so LD_PRELOAD=~/.bpftime/libbpftime-agent-transformer.so ./victim
+sudo AGENT_SO=build/libprototype.so LD_PRELOAD=~/.bpftime/libbpftime-agent-transformer.so ./victim
 ```
 
 **Note:** The code present in `agent.cpp` is a small addition to [https://github.com/eunomia-bpf/bpftime/blob/master/runtime/agent/agent.cpp](https://github.com/eunomia-bpf/bpftime/blob/master/runtime/agent/agent.cpp), simply registering the ufunc for sleep.
