@@ -91,6 +91,7 @@ static void sig_handler_sigusr1_detach(int sig) {
     bpftime_logger_flush();
 }
 
+// MODIFIED: userspace function that will execute the code called from within the eBPF program
 extern "C" {
 extern int bpf_sleep(int time) {
     std::cout << "Sleep function called with: " << time << std::endl;
@@ -174,7 +175,7 @@ extern "C" void bpftime_agent_main(const gchar* data, gboolean* stay_resident) {
     }
     SPDLOG_INFO("Attach successfully");
 
-    // MODIFIED part to register the custom sleep function
+    // MODIFIED: part to register the custom sleep function
     ebpf_ufunc_func_info sleepFunc = {
         "sleep_func", UFUNC_FN(bpf_sleep), bpftime::UFUNC_TYPE_UINT32, {UFUNC_TYPE_UINT32}, 1, 101, false};
     bpftime_ufunc_register_ufunc(101, sleepFunc);

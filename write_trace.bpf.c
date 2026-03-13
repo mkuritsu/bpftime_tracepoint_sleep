@@ -7,7 +7,7 @@
 SEC("tracepoint/syscalls/sys_enter_write")
 int trace_write(struct trace_event_raw_sys_enter* ctx) {
     bpf_printk("write syscall entered\n");
-    UFUNC_CALL_1(101, 2);
+    UFUNC_CALL_1(101, 2); // Call the ufunc registered with id 101 (bpf_sleep)
     return 0;
 }
 
