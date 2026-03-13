@@ -1,0 +1,6 @@
+/build/
+/.cache/
+*.o
+/victim
+/write_trace
+/write_trace.skel.h

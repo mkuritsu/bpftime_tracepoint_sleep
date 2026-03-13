@@ -1,0 +1,8 @@
+---
+BasedOnStyle: Microsoft
+NamespaceIndentation: All
+DerivePointerAlignment: false
+PointerAlignment: Left
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBraces: Attach
+...
